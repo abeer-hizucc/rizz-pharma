@@ -3,7 +3,7 @@ import './Hero.scss';
 import SearchBar from "./SearchBar";
 export default function Hero() {
     return (
-        <div>
+        <div className="w-full px-32 max-md:px-16 max-sm:px-8 pt-4 msd:pt-8">
             <Header/>
             <section className="flex flex-col w-full space-y-16 max-sm:space-y-8">
             <div className='flex flex-col py-10 w-[45%] md:w-[40%] space-y-5'>
