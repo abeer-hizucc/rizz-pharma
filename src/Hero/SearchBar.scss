@@ -1,0 +1,15 @@
+.input-wrapper{
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+    height:3rem;
+    padding: 1em 1em;
+}
+input{
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    font-size: 1em;
+    overflow: hidden;
+    color: white;
+}

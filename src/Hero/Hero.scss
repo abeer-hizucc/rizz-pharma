@@ -1,0 +1,31 @@
+.gradient-button{
+    background-color: black;
+    width: fit-content;
+    color: white;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:after{
+        content: '';
+        position: absolute;
+        cursor: pointer;
+        top: -1;
+        left: -1;
+        width: 102%;
+        height: 110%;
+        background-image: linear-gradient(to right, #DB5095, #1945E8);
+        border-radius: 100px;
+        z-index: -1;
+    }
+    &:hover{
+        z-index: 0;
+        transition: 0.5s;
+        
+    }
+    
+}
