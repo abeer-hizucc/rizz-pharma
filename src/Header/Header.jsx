@@ -87,7 +87,7 @@ export default function Header() {
                     <ul className='flex flex-row justify-evenly text-base font-[200] text-[#FAF8F2] w-[80%]'>
                         <li>Home</li>
                         <DropdownMenu title="Category" items={categoryItems} />
-                        <DropdownMenu title="Top Products" items={["Protein", "Vitamins", "Supplements"]} />
+                        <DropdownMenu title="Top Products" items={topProductItems} />
                         <li>Contact us</li>
                         <li>FAQs</li>
 

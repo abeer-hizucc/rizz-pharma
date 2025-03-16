@@ -8,6 +8,7 @@ const sliderConfig = {
     gap: 80,
     focusAt: 'center',
     keyboard: true,
+    autoplay:4000,
     perView: 4,
     startAt: 0,
     type: "carousel",
@@ -30,7 +31,7 @@ export default function Testimonial() {
     }, [slider]);
 
     return (
-        <section className="flex flex-col space-y-10 w-full py-16 ">
+        <section id="testimonial" className="flex flex-col space-y-10 w-full py-16 ">
 
             <div class="text-center px-4">
                 <div class="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4">

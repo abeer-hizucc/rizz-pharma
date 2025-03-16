@@ -1,5 +1,5 @@
 export default function TopProduct(){
     return(
-        <section></section>
+        <section id="top-product"></section>
     )
 }

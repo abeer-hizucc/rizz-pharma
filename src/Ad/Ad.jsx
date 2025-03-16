@@ -2,7 +2,7 @@ import ad_bg from "../assets/Ad.png";
 import arrow from "../assets/arrow.png";
 export default function Ad() {
     return (
-        <section className="overflow-hidden bg-transparent relative">
+        <section id ="ad" className="overflow-hidden bg-transparent relative">
             <img  className= 'w-full' src={ad_bg} />
             <div className="absolute w-full h-full text-white top-0 left-0 p-4 text-2xl z-10">
                 <div className="flex flex-col md:flex-row max-md:space-y-8 justify-between max-sm:p-1 p-[5%]">
