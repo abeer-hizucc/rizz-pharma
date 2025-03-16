@@ -32,13 +32,15 @@ export default function Testimonial() {
     return (
         <section className="flex flex-col space-y-10 w-full py-16 ">
 
-            <span className="text-4xl font-[700] flex flex-row space-x-2 justify-center text-white">
-                <span> Hear What</span>
-                <span className="gradient-text">
-                    Rizz
-                </span>
-                <span> Patients Have To Say</span>
-            </span>
+            <div class="text-center px-4">
+                <div class="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4">
+                    Hear What <span class="text-transparent bg-gradient-to-r from-[#C1842D] to-[#ECC974] bg-clip-text inline-block">Rizz</span> Patients
+                </div>
+                <div class="text-3xl md:text-4xl lg:text-6xl font-bold text-white">
+                    Have To Say
+                </div>
+            </div>
+
             <div className="flex justify-center">
                 <div className='glide'>
                     <div className='glide__track' data-glide-el='track'>

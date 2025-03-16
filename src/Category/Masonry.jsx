@@ -51,7 +51,7 @@ const Masonry = () => {
     //     </div>
     //   ))}
     // </div>
-    <div className="layout-container">
+    <div className="layout-container ">
     {categories.map((category, index) => (
       <div key={index} className="overflow-hidden bg-transparent relative hover:scale-105 transition ease-in-out hover:z-20 hover:cursor-pointer">
         <img className="rounded-xl" width='300px' src={category.imageUrl} alt={category.title} />

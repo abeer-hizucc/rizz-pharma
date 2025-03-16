@@ -29,9 +29,9 @@ const DropdownMenu = ({ title, items }) => {
         >
           {title}
           {isOpen ? (
-            <ChevronUp className="w-5 h-5 transition-transform duration-300" />
+            <ChevronUp className="w-5 h-5 transition-transform duration-300  hover:cursor-pointer" />
           ) : (
-            <ChevronDown className="w-5 h-5 transition-transform duration-300" />
+            <ChevronDown className="w-5 h-5 transition-transform duration-300  hover:cursor-pointer" />
           )}
         </button>
   
@@ -40,7 +40,7 @@ const DropdownMenu = ({ title, items }) => {
           className={`dropdown-menu ${isOpen ? "open" : ""} absolute left-0 top-full mt-2 w-48 bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300`}
         >
           {items.map((item, index) => (
-            <a key={index} href="#" className="block px-4 py-2 text-white hover:bg-gray-700">
+            <a key={index} href="#" className="block px-4 py-2 text-base text-white hover:bg-gray-700">
               {item}
             </a>
           ))}

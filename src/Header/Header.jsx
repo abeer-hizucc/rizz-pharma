@@ -7,10 +7,13 @@ import { ShoppingCart } from 'lucide-react';
 import DropdownMenu from './DropdownMenu';
 import './Header.scss';
 export default function Header() {
-    const categoryItems = ['Weight Loss', 'Sexual Health', 'Brain Health', 'Testosterone HRT', 'Athletic Performance', 'Beauty and Hair Loss']
+    const categoryItems = ['Weight Loss', 'Sexual Health', 'Brain Health', 'Testosterone HRT', 'Athletic Performance', 'Beauty and Hair Loss'];
+    const topProductItems =['Semaglutide (GLP-1) Injection','Tirzepatide (GLP-2) Injection','Tadalafil','Slidenafil',' Dutasteride 0.5mg ']
     const mobileNavBarRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
 
     function openSidebar() {
         setIsOpen(true);
@@ -53,14 +56,35 @@ export default function Header() {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [isOpen]);
+    useEffect(() => {
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className="text-white flex flex-row justify-between w-full">
-            <img src={ufc_logo} alt="UFC_LOGO" />
-            <button onClick={openSidebar} className='absolute top-0 right-0 p-4 msd:hidden hover:cursor-pointer '><Menu /></button>
+        
+        <div className={`sticky top-0 w-full z-100 transition-all duration-300 px-32 py-6 max-md:px-16 max-md:py-4 max-sm:px-8 ${
+            isScrolled ? "backdrop-blur-md bg-black/30" : "bg-transparent"
+        }`}>
+            <header className="text-white flex flex-row justify-between w-full">
+            <img src={ufc_logo} alt="UFC_LOGO" className='max-msd:w-14 max-msd:h-14' />
+            <div className='absolute msd:hidden top-0 right-0 flex flex-row space-x-3 p-4'>
+            <button className='w-fit text-[#FAF8F2] rounded-full ring-1 ring-[#FAF8F2] px-6 py-1 hover:cursor-pointer hover:transition ease-in 0.5s hover:text-black hover:bg-[#FAF8F2]'>Log In</button>
+            <button><ShoppingCart className='w-6 h-4 hover:cursor-pointer transition ease-in-out delay-50 hover:scale-110' /></button> 
+            <button onClick={openSidebar} className='hover:cursor-pointer '><Menu /></button>
+            </div>
+            
             <nav className='flex flex-col space-y-4 md:space-y-8  w-[80%] nav-item max-msd:hidden'>
                 <div className='flex flex-row justify-end w-full'>
-                    <ul className='flex flex-row justify-evenly lg:text-xl md:text-md font-[200] text-[#FAF8F2] w-[80%]'>
+                    <ul className='flex flex-row justify-evenly text-base font-[200] text-[#FAF8F2] w-[80%]'>
                         <li>Home</li>
                         <DropdownMenu title="Category" items={categoryItems} />
                         <DropdownMenu title="Top Products" items={["Protein", "Vitamins", "Supplements"]} />
@@ -81,7 +105,7 @@ export default function Header() {
                 </ul>
             </nav>
             <nav ref={mobileNavBarRef} className='mobileNav msd:hidden'>
-                <ul className='justify-between flex flex-col h-full w-full py-2 text-sm'>
+                <ul className='justify-between flex flex-col h-[80%] w-full py-2 text-sm'>
                     <button onClick={closeSidebar} className='hover:cursor-pointer p-2'><CircleX /></button>
                     <li>Home</li>
                     <li className='flex flex-col'>
@@ -105,9 +129,11 @@ export default function Header() {
                         </button>
                         <ul className='sub-menu'>
                             <div>
-                                <li>Protein</li>
-                                <li>Vitamins</li>
-                                <li>Supplements</li>
+                            <div>
+                                {topProductItems.map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                ))}
+                            </div>
                             </div>
                         </ul>
                     </li>
@@ -118,8 +144,7 @@ export default function Header() {
                         <li><img src={fb_logo} className='w-6 h-6' alt="fb-logo" /></li>
                     </div>
                     <li><button className='w-fit flex justify-center text-[#1F1F1F] bg-[#E1C06E] rounded-full px-6 py-1 hover:cursor-pointer'>Sign Up</button></li>
-                    <li><button className='w-fit text-[#FAF8F2] rounded-full ring-1 ring-[#FAF8F2] px-6 py-1 hover:cursor-pointer hover:transition ease-in 0.5s hover:text-black hover:bg-[#FAF8F2]'>Log In</button></li>
-                    <li><button><ShoppingCart className='w-6 h-4 hover:cursor-pointer transition ease-in-out delay-50 hover:scale-110' /></button> </li>
+                    
 
                 </ul>
 
@@ -128,5 +153,7 @@ export default function Header() {
 
             </nav>
         </header>
+
+        </div>
     )
 }
