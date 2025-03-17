@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import CategorySlider from "./CategorySlider";
 import CardArrangement from "./CardArrangement";
+import { Swiper,SwiperSlide } from "swiper/react";
+import { A11y, Pagination, Scrollbar, Navigation } from 'swiper/modules';
+import 'swiper/css'
+import ProductCard from "./ProductCard";
 
 export default function TopProduct() {
     const [productsByCategory, setProductsByCategory] = useState({});
@@ -27,7 +31,7 @@ export default function TopProduct() {
             : productsByCategory[selectedCategory] || [];
 
     return (
-        <section id="topProduct" className="py-8 md:py-16 lg:py-32 px-16 md:px-64 lg:px-90 flex flex-col space-y-8 w-full justify-center">
+        <section id="topProduct" className="py-8 md:py-16 lg:py-32 px-16 md:px-32 flex flex-col space-y-8 w-full justify-center">
             <div className="text-center px-4">
                 <div className="text-3xl md:text-4xl lg:text-6xl font-bold text-white ">
                     Solutions for Your{" "}

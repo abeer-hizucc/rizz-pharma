@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { CircleArrowRight } from 'lucide-react';
+import { CircleArrowRight, CircleArrowLeft } from "lucide-react";
 
 const CategorySlider = ({ selectedCategory, setSelectedCategory }) => {
   const items = [
@@ -18,6 +18,12 @@ const CategorySlider = ({ selectedCategory, setSelectedCategory }) => {
     setSelectedCategory(item);
   };
 
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -200, behavior: "smooth" });
+    }
+  };
+
   const scrollRight = () => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({ left: 200, behavior: "smooth" });
@@ -25,28 +31,34 @@ const CategorySlider = ({ selectedCategory, setSelectedCategory }) => {
   };
 
   return (
-    <div className="relative flex items-center">
-      <div ref={sliderRef} className="flex overflow-x-auto  space-x-4 md:space-x-8 p-4">
-        {items.map((item, index) => (
-          <button
-            key={index}
-            className={`hover:cursor-pointer flex-shrink-0 px-6 py-2 rounded-full text-md text-white ring-1 ring-white transition-colors ${
-              selectedCategory === item
-                ? "bg-[#e1c06e] text-black hover:bg-[#d1ac5e]" 
-                : "bg-transparent text-white hover:bg-gray-300 hover:text-black" 
-            }`}
-            onClick={() => handleItemClick(item)}
-          >
-            {item}
-          </button>
-        ))}
+    <div className="relative flex items-center w-full justify-center">
+      <button
+        onClick={scrollLeft}
+        className="hidden md:flex items-center justify-center w-12 h-12 rounded-full absolute left-0 z-10 bg-opacity-50"
+      >
+        <CircleArrowLeft className="w-10 h-10 hover:cursor-pointer text-white" />
+      </button>
+      <div className="w-[90%] overflow-hidden">
+        <div ref={sliderRef} className="flex overflow-x-auto space-x-4 md:space-x-8 p-4 scrollbar-hide">
+          {items.map((item, index) => (
+            <button
+              key={index}
+              className={`hover:cursor-pointer flex-shrink-0 px-6 py-2 rounded-full text-md text-white ring-1 ring-white transition-colors ${selectedCategory === item
+                ? "bg-[#e1c06e] text-black hover:bg-[#d1ac5e]"
+                : "bg-transparent text-white hover:bg-[#d1ac5e] hover:text-black"
+                }`}
+              onClick={() => handleItemClick(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
       </div>
-
       <button
         onClick={scrollRight}
-        className="hidden md:block absolute right-0 z-10"
+        className="hidden md:flex items-center justify-center w-12 h-12 rounded-full absolute right-0 z-10 bg-opacity-50"
       >
-        <CircleArrowRight className="w-10 h-10 hover:cursor-pointer" color="#FFFF" />
+        <CircleArrowRight className="w-10 h-10 hover:cursor-pointer text-white" />
       </button>
     </div>
   );

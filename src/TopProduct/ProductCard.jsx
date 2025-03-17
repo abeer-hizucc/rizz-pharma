@@ -3,15 +3,15 @@ import { ShoppingCart } from "lucide-react";
 export default function ProductCard({ product }) {
     const prefix = 'https://rizzpharma.com';
     return (
-        <div className="w-full h-90 flex flex-col justify-between rounded-xl bg-[#23283e] backdrop-blur-3xl hover:cursor-pointer hover:scale-105 transition ease-in-out">
-            <div className={`border-b-2 border-white  w-42 px-3 py-1 rounded-bl-xl text-white flex justify-end ml-auto ${product.IsPrescriptionGenerationRequired ? "bg-[#bb6a5f]" : "bg-[#8e3c34]"}`}>
+        <div className="w-full h-90 flex flex-col justify-between rounded-xl bg-[#23283e] backdrop-blur-3xl hover:cursor-pointer">
+            <div className={` w-42 px-3 py-1 rounded-bl-xl text-white flex justify-end ml-auto ${product.IsPrescriptionGenerationRequired ? "bg-gradient-to-r from-[#A75356] to-[#D78C6C]" : "bg-gradient-to-r from-[#6C221D] to-[#954139]"}`}>
                 <p className="text-md">{product.IsPrescriptionGenerationRequired ? "Research use only" : "Recurring plan"}</p>
             </div>
             <div className="flex flex-row p-2 justify-between ">
                 <img src={`${prefix}${product.CoverPhoto}`} className="w-18 h-36" alt="medicine" />
 
                 <div className="flex-1 flex items-center justify-center">
-                    <span className="text-[#C1842D] text-2xl w-1/2"><b>{product.Name}</b></span>
+                    <span className="text-[#C1842D] overflow-hidden text-xl w-1/2"><b>{product.Name}</b></span>
                 </div>
             </div>
             <div className="flex flex-row justify-between bg-[#212534] h-18">

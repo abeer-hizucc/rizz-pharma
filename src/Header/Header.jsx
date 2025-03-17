@@ -75,7 +75,7 @@ export default function Header() {
         <div className={`sticky top-0 w-full z-100 transition-all duration-300 px-32 py-6 max-md:px-16 max-md:py-4 max-sm:px-8 ${
             isScrolled ? "backdrop-blur-md bg-black/30" : "bg-transparent"
         }`}>
-            <header className="text-white flex flex-row justify-between w-full">
+            <header id="header" className="text-white flex flex-row justify-between w-full">
             <img src={ufc_logo} alt="UFC_LOGO" className='max-msd:w-14 max-msd:h-14' />
             <div className='absolute msd:hidden top-0 right-0 flex flex-row space-x-3 p-4'>
             <button className='w-fit text-[#FAF8F2] rounded-full ring-1 ring-[#FAF8F2] px-6 py-1 hover:cursor-pointer hover:transition ease-in 0.5s hover:text-black hover:bg-[#FAF8F2]'>Log In</button>
@@ -86,7 +86,7 @@ export default function Header() {
             <nav className='flex flex-col space-y-4 md:space-y-8  w-[80%] nav-item max-msd:hidden'>
                 <div className='flex flex-row justify-end w-full'>
                     <ul className='flex flex-row justify-evenly text-base font-[200] text-[#FAF8F2] w-[80%]'>
-                        <li>Home</li>
+                        <li><Link to="#hero" smooth>Home</Link></li>
                         <DropdownMenu title="Category" items={categoryItems} link ="#category" />
                         <DropdownMenu title="Top Products" items={topProductItems} link ="#topProduct" />
                         <li><Link to="#footer" smooth>Contact us</Link></li>
