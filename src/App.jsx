@@ -7,6 +7,7 @@ import Hero from './Hero/Hero'
 import Header from './Header/Header'
 import Support from './Support/Support'
 import Testimonial from './Testimonial/Testimonial'
+import TopProduct from './TopProduct/TopProduct'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Hero />
       <div className='space-y-18'>
       <Category />
+      <TopProduct/>
       <Support />
       <Ad />
       <Testimonial />

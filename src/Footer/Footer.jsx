@@ -6,7 +6,7 @@ import certification from '../assets/certification.png';
 import { Send } from 'lucide-react';
 export default function Footer() {
     return (
-        <footer id ="footer" className="relative bg-gradient-to-b from-[#3D55CC]/70 to-[#1F1F1F]/10 w-full h-[1200px] px-4 md:px-8 lg:px-16 py-5 md:py-16">
+        <footer id="footer" className="relative bg-gradient-to-b from-[#3D55CC]/70 to-[#1F1F1F]/10 w-full h-[1200px] px-4 md:px-8 lg:px-16 py-5 md:py-16">
             <div className="absolute w-full h-full text-gray-100 top-0 left-0 p-4 text-2xl z-10">
                 <div className="flex flex-col">
                     <div className='w-full py-8 flex flex-row max-md:flex-col max-md:space-y-8 justify-evenly'>
@@ -67,8 +67,8 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full">
-                        <img src={branding} alt="Branding" className='object-cover' />
+                    <div className="w-full flex justify-center items-center">
+                        <img src={branding} alt="Branding" className="object-contain" />
                     </div>
                 </div>
             </div>

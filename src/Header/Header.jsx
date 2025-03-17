@@ -1,6 +1,7 @@
 import ufc_logo from '../assets/UFC_RIZZ Logo.png';
 import { useRef, useState, useEffect } from "react";
 import fb_logo from '../assets/fb-logo.png';
+import { HashLink as Link } from 'react-router-hash-link';
 import { ChevronDownIcon, CircleX, Menu } from 'lucide-react';
 import { Instagram } from 'lucide-react';
 import { ShoppingCart } from 'lucide-react';
@@ -86,9 +87,9 @@ export default function Header() {
                 <div className='flex flex-row justify-end w-full'>
                     <ul className='flex flex-row justify-evenly text-base font-[200] text-[#FAF8F2] w-[80%]'>
                         <li>Home</li>
-                        <DropdownMenu title="Category" items={categoryItems} />
-                        <DropdownMenu title="Top Products" items={topProductItems} />
-                        <li>Contact us</li>
+                        <DropdownMenu title="Category" items={categoryItems} link ="#category" />
+                        <DropdownMenu title="Top Products" items={topProductItems} link ="#topProduct" />
+                        <li><Link to="#footer" smooth>Contact us</Link></li>
                         <li>FAQs</li>
 
                     </ul>

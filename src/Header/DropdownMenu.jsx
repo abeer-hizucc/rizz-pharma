@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { HashLink as Link } from "react-router-hash-link";
+import { HashLink as Link } from 'react-router-hash-link';
 import './DropdownMenu.scss';
 
-const DropdownMenu = ({ title, items }) => {
+const DropdownMenu = ({ title, items ,link }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
   
@@ -42,9 +42,9 @@ const DropdownMenu = ({ title, items }) => {
         >
           {items.map((item, index) => (
             
-            <a key={index} href="#" className="block px-4 py-2 text-base text-white hover:bg-gray-700">
+            <Link to={link} smooth key={index} className="block px-4 py-2 text-base text-white hover:bg-gray-700">
               {item}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
