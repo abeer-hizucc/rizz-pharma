@@ -10,8 +10,7 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;
-
-  background-image: url("./bg.png");
+  background-image: url("/src/assets/bg.png");
   background-size: cover; 
   background-position: top;
   background-repeat: no-repeat; 
